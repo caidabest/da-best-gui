@@ -4,217 +4,99 @@
 -- Instances:
 
 local ScreenGui = Instance.new("ScreenGui")
-local Frame = Instance.new("Frame")
-local bestsilentaim = Instance.new("TextButton")
-local bestaimlockkkk = Instance.new("TextButton")
-local TextLabel = Instance.new("TextLabel")
+local caighe = Instance.new("Frame")
 local TextButton = Instance.new("TextButton")
+local TextLabel = Instance.new("TextLabel")
 
 --Properties:
 
 ScreenGui.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
 
-Frame.Parent = ScreenGui
-Frame.Active = true
-Frame.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
-Frame.BorderColor3 = Color3.fromRGB(0, 0, 0)
-Frame.Position = UDim2.new(0.0517462268, 0, 0.187272727, 0)
-Frame.Size = UDim2.new(0, 552, 0, 378)
-
-bestsilentaim.Name = "best silent aim"
-bestsilentaim.Parent = ScreenGui
-bestsilentaim.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-bestsilentaim.Position = UDim2.new(0.0517462268, 0, 0.187272727, 0)
-bestsilentaim.Size = UDim2.new(0, 552, 0, 86)
-bestsilentaim.Font = Enum.Font.SourceSans
-bestsilentaim.Text = "best silent aim"
-bestsilentaim.TextColor3 = Color3.fromRGB(0, 0, 0)
-bestsilentaim.TextSize = 14.000
-
-bestaimlockkkk.Name = "best aim lockkkk"
-bestaimlockkkk.Parent = ScreenGui
-bestaimlockkkk.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-bestaimlockkkk.Position = UDim2.new(0.044291947, 0, 0.654545486, 0)
-bestaimlockkkk.Size = UDim2.new(0, 583, 0, 130)
-bestaimlockkkk.Font = Enum.Font.SourceSans
-bestaimlockkkk.Text = "best aimlock"
-bestaimlockkkk.TextColor3 = Color3.fromRGB(0, 0, 0)
-bestaimlockkkk.TextSize = 14.000
-
-TextLabel.Parent = ScreenGui
-TextLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-TextLabel.Position = UDim2.new(0.0517462268, 0, 0.343636364, 0)
-TextLabel.Size = UDim2.new(0, 552, 0, 172)
-TextLabel.Font = Enum.Font.SourceSans
-TextLabel.Text = "WHO SHARE U IT KYS LMAO"
-TextLabel.TextColor3 = Color3.fromRGB(0, 0, 0)
-TextLabel.TextSize = 14.000
+caighe.Name = "caighe"
+caighe.Parent = ScreenGui
+caighe.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+caighe.Position = UDim2.new(0.059880238, 0, 0.0345454551, 0)
+caighe.Size = UDim2.new(0, 198, 0, 100)
 
 TextButton.Parent = ScreenGui
-TextButton.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-TextButton.Size = UDim2.new(0, 136, 0, 50)
+TextButton.BackgroundColor3 = Color3.fromRGB(0, 255, 255)
+TextButton.Position = UDim2.new(0.123752497, 0, 0.105454542, 0)
+TextButton.Size = UDim2.new(0, 137, 0, 40)
 TextButton.Font = Enum.Font.SourceSans
-TextButton.Text = "caidabest open"
+TextButton.Text = "Auto Farm"
 TextButton.TextColor3 = Color3.fromRGB(0, 0, 0)
 TextButton.TextSize = 14.000
+TextButton.MouseButton1Down:connect(function()
+	Scripthere
+end) 
 
+TextLabel.Parent = ScreenGui
+TextLabel.BackgroundColor3 = Color3.fromRGB(183, 255, 49)
+TextLabel.Position = UDim2.new(0.123752497, 0, 0.0345454551, 0)
+TextLabel.Size = UDim2.new(0, 138, 0, 24)
+TextLabel.Font = Enum.Font.SourceSans
+TextLabel.Text = "make by cai"
+TextLabel.TextColor3 = Color3.fromRGB(0, 0, 0)
+TextLabel.TextSize = 14.000
 -- Scripts:
 
-local function DNOUXY_fake_script() -- bestsilentaim.Script 
-	local script = Instance.new('Script', bestsilentaim)
+local function ZMXW_fake_script() -- TextButton.Script 
+	local script = Instance.new('Script', TextButton)
 
-	
+	--// Services
 	local players = game:GetService("Players")
-	local plr = players.LocalPlayer
-	local mouse = plr:GetMouse()
-	local camera = game.Workspace.CurrentCamera
-	local teamcheck = true
 	
-	local function ClosestPlayerToMouse()
-		local target = nil
-		local dist = math.huge
-		for i,v in pairs(players:GetPlayers()) do
-			if v.Name ~= plr.Name then
-				if v.Character and v.Character:FindFirstChild("Humanoid") and v.Character.Humanoid.Health ~= 0 and v.Character:FindFirstChild("HumanoidRootPart") and teamcheck and v.TeamColor ~= plr.TeamColor then
-					local screenpoint = camera:WorldToScreenPoint(v.Character.HumanoidRootPart.Position)
-					local check = (Vector2.new(mouse.X,mouse.Y)-Vector2.new(screenpoint.X,screenpoint.Y)).magnitude
+	--// Workspace
+	local stages = workspace:WaitForChild("BoatStages"):WaitForChild("NormalStages")
+	local penguin, gold = workspace:WaitForChild("ChangeCharacter"), workspace:WaitForChild("ClaimRiverResultsGold")
 	
-					if check < dist then
-						target  = v
-						dist = check
-					end
-				end
+	--// Other
+	local client = players.LocalPlayer
+	
+	--// Main
+	---------
+	_G.Busy = true
+	while _G.Busy do
+		local bodyVelocity = Instance.new("BodyVelocity")
+		bodyVelocity.Velocity = Vector3.new(0, -4, 0)
+		bodyVelocity.Parent = client.Character.HumanoidRootPart
+	
+		for i = 1, 9 do
+			if not client.Character or not client.Character:FindFirstChild("Humanoid") then
+				repeat wait() until client.Character and client.Character:FindFirstChild("Humanoid")
 			end
-		end
 	
-		return target 
-	end
+			client.Character.HumanoidRootPart.CFrame = stages["CaveStage"..i].DarknessPart.CFrame wait(0.1)
 	
-	local mt = getrawmetatable(game)
-	local namecall = mt.__namecall
-	setreadonly(mt,false)
+			if not _G.Busy then
+				client.Character.Humanoid.Health = 0
+				exit(0)
+			end
 	
-	mt.__namecall = function(self,...)
-		local args = {...}
-		local method = getnamecallmethod()
-	
-		if tostring(self) == "HitPart" and method == "FireServer" then
-			args[1] = ClosestPlayerToMouse().Character.Head
-			args[2] = ClosestPlayerToMouse().Character.Head.Position
-			return self.FireServer(self, unpack(args))
-		end
-		return namecall(self,...)
-	end
-end
-coroutine.wrap(DNOUXY_fake_script)()
-local function OUNJ_fake_script() -- bestaimlockkkk.Script 
-	local script = Instance.new('Script', bestaimlockkkk)
-
-	-- Made by Error_IDK
-	-- Version: 3.2
-	
-	-- Instances:
-	
-	local ScreenGui = Instance.new("ScreenGui")
-	local Aimbot = Instance.new("Frame")
-	local Title = Instance.new("TextLabel")
-	local Toggle = Instance.new("TextButton")
-	
-	--Properties:
-	
-	ScreenGui.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
-	ScreenGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
-	
-	Aimbot.Name = "Aimbot"
-	Aimbot.Parent = ScreenGui
-	Aimbot.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-	Aimbot.Position = UDim2.new(0.0599842146, 0, 0.358722359, 0)
-	Aimbot.Size = UDim2.new(0, 126, 0, 152)
-	
-	Title.Name = "Title"
-	Title.Parent = Aimbot
-	Title.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-	Title.Size = UDim2.new(0, 126, 0, 50)
-	Title.Font = Enum.Font.SourceSans
-	Title.Text = "Aimbot (Made by Error_IDK)"
-	Title.TextColor3 = Color3.fromRGB(0, 0, 0)
-	Title.TextSize = 13.300
-	
-	Toggle.Name = "Toggle"
-	Toggle.Parent = Aimbot
-	Toggle.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-	Toggle.BorderSizePixel = 0
-	Toggle.Position = UDim2.new(0, 0, 0.473684222, 0)
-	Toggle.Size = UDim2.new(0, 126, 0, 50)
-	Toggle.Font = Enum.Font.SourceSans
-	Toggle.Text = "Off"
-	Toggle.TextColor3 = Color3.fromRGB(255, 0, 0)
-	Toggle.TextSize = 40.000
-	
-	-- Scripts:
-	
-	local function PNHLOYF_fake_script() -- Toggle.LocalScript 
-		local script = Instance.new('LocalScript', Toggle)
-	
-		_G.aimbot = false
-		local camera = game.Workspace.CurrentCamera
-		local localplayer = game:GetService("Players").LocalPlayer
-	
-		script.Parent.MouseButton1Click:Connect(function()
-			if _G.aimbot == false then
-				_G.aimbot = true
-				script.Parent.TextColor3 = Color3.fromRGB(0,170,0)
-				script.Parent.Text = "On"
-				function closestplayer()
-					local dist = math.huge -- math.huge means a really large number, 1M+.
-					local target = nil --- nil means no value
-					for i,v in pairs (game:GetService("Players"):GetPlayers()) do
-						if v ~= localplayer then
-							if v.Character and v.Character:FindFirstChild("Head") and _G.aimbot and v.Character.Humanoid.Health > 0 then --- creating the checks
-								local magnitude = (v.Character.Head.Position - localplayer.Character.Head.Position).magnitude
-								if magnitude < dist then
-									dist = magnitude
-									target = v
-								end
-	
-							end
-						end
-					end
-					return target
-				end
-	
+			if i == 1 then
+				wait(1.5)
 			else
-				_G.aimbot = false
-				script.Parent.TextColor3 = Color3.fromRGB(255,0,0)
-				script.Parent.Text = "Off"
+				wait(1.8)
 			end
-		end)
 	
-		local settings = {
-			keybind = Enum.UserInputType.MouseButton2
-		}
+			gold:FireServer()
+		end
 	
-		local UIS = game:GetService("UserInputService")
-		local aiming = false --- this toggle will make it so we lock on to the person when we press our keybind
+		penguin:FireServer("PenguinCharacter")
+		client.Character:Remove()
 	
-		UIS.InputBegan:Connect(function(inp)
-			if inp.UserInputType == settings.keybind then
-				aiming = true
-			end
-		end)
+		repeat wait() 
+		until client.Character and client.Character:FindFirstChild("HumanoidRootPart")
 	
-		UIS.InputEnded:Connect(function(inp)
-			if inp.UserInputType == settings.keybind then ---- when we stop pressing the keybind it would unlock off the player
-				aiming = false
-			end
-		end)
 	
-		game:GetService("RunService").RenderStepped:Connect(function()
-			if aiming then
-				camera.CFrame = CFrame.new(camera.CFrame.Position,closestplayer().Character.Head.Position) -- locks into the HEAD
-			end
-		end)
-	end
-	coroutine.wrap(PNHLOYF_fake_script)()
 end
-coroutine.wrap(OUNJ_fake_script)()
+coroutine.wrap(ZMXW_fake_script)()
+local function YLMQU_fake_script() -- ScreenGui.Script 
+	local script = Instance.new('Script', ScreenGui)
+
+	frame = script.Parent.caighe
+	frame.Draggable = true
+	frame.Active = true
+	frame.Selectable = true
+end
+coroutine.wrap(YLMQU_fake_script)()
