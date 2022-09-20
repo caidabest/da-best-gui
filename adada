@@ -110,18 +110,19 @@ Default = <bool> - The default value of the toggle.
 Callback = <function> - The function of the toggle.
 ]]
 Tab:AddToggle({
-	Name = "Esp",
+	Name = "This is a toggle!",
 	Default = false,
 	Callback = function(Value)
-		getgenv().enabled = true --Toggle on/off
-getgenv().filluseteamcolor = true --Toggle fill color using player team color on/off
-getgenv().outlineuseteamcolor = true --Toggle outline color using player team color on/off
-getgenv().fillcolor = Color3.new(0, 0, 0) --Change fill color, no need to edit if using team color
-getgenv().outlinecolor = Color3.new(1, 1, 1) --Change outline color, no need to edit if using team color
-getgenv().filltrans = 0 --Change fill transparency
-getgenv().outlinetrans = 0 --Change outline transparency
- 
-loadstring(game:HttpGet("https://raw.githubusercontent.com/zntly/highlight-esp/main/esp.lua")
+		loadstring(game:HttpGet("https://raw.githubusercontent.com/TheNuggetEater05/ekaMiffutSmodnaR/main/GlobalR6SkeletonESP.lua"))()
+
+shared.BoneESP_Settings = {
+    Circle_Visible = false,
+    Circle_Radius = 3,
+    BoneESP_Color = Color3.fromRGB(255,255,255)
+}
+	end    
+})
+
 --[[
 Name = <string> - The name of the toggle.
 Default = <bool> - The default value of the toggle.
