@@ -110,7 +110,7 @@ Default = <bool> - The default value of the toggle.
 Callback = <function> - The function of the toggle.
 ]]
 Tab:AddButton({
-	Name = "Button!",
+	Name = "Esp",
 	Callback = function()
       		local players = game.Players:GetPlayers()
 
